@@ -1,7 +1,7 @@
 #pragma once
 #include "Zveno.h"
 #include <string>
-#include <cstddef>
+using namespace std;
 class Queue {
 private:
 	Zveno* head;
@@ -32,10 +32,10 @@ public:
 			Zveno* cur = tmp.head->GetNext();
 			while (cur != nullptr) {
 				Zveno* v(cur);
-				 // починить
-					//Prev->SetNext(v);
-					Prev = Prev->GetNext();
-					cur = cur->GetNext();
+				// починить
+				   //Prev->SetNext(v);
+				Prev = Prev->GetNext();
+				cur = cur->GetNext();
 			}
 		}
 	}
@@ -74,7 +74,37 @@ public:
 		if (head == nullptr) {
 			return 0;
 		}
-		else { return 1;
+		else {
+			return 1;
+		}
+	}
+	string ListToString() {
+		string str = "";
+		Zveno* cur = head;
+		while (cur != nullptr) {
+			int k = cur->GetInfo();
+			str = str + " " + to_string(k);
+			cur = cur->GetNext();
+		}
+		return str;
+	}
+	int GetCount() {
+		int cnt = 0;
+		Zveno* tmphead = head;
+		while (tmphead != nullptr) {
+			tmphead = tmphead->GetNext();
+			cnt++;
+		}
+		delete tmphead;
+		return cnt;
+	}
+	void AddToStr(string* arr) {
+		Zveno* tmphead = head;
+		int i = 0;
+		while (tmphead != nullptr) {
+			arr[i] = to_string(tmphead->GetInfo());
+			tmphead = tmphead->GetNext();
+			i++;
 		}
 	}
 };

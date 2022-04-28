@@ -12,12 +12,15 @@ int main() {
 	A.Add(9);
 	A.Add(1);
 	Queue C(A);
-	while (C.IsEmpty() == 1) {
-		cout << C.GetInfo() << " ";
+	string arr[10];
+	for (int i = 0; i < 10; i++) {
+		cin >> arr[i];
 	}
-	cout << endl;
-	while (A.IsEmpty() == 1) {
-		cout << A.GetInfo() << " ";
+	//C.AddToStr(arr);
+	sort(arr, 10);
+	//cout << C.ListToString() << endl;
+	for (int i = 0; i < 10; i++) {
+		cout << arr[i] << " " << endl;
 	}
 	cout << endl;
 	B.Add(6);
@@ -25,13 +28,8 @@ int main() {
 	B.Add(4);
 	B.Add(1);
 	B.Add(7);
+	cout << B.ListToString() << endl;
 	A = B;
-	while (B.IsEmpty() == 1) {
-		cout << B.GetInfo() << " ";
-	}
-	cout << endl;
-	while (A.IsEmpty() == 1) {
-		cout << A.GetInfo() << " ";
-	}
-	cout << endl;
+	cout << A.ListToString() << endl;
+
 }
